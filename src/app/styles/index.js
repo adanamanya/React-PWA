@@ -35,6 +35,13 @@ export const styles = {
     padding: 1,
     marginBottom: '3ex',
   },
+  mobilecard: {
+    minWidth: '38ex',
+    alignContent: 'flex-start',
+    padding: 1,
+    marginBottom: '3ex',
+    height: 300,
+  },
   productname: {
     fontSize: 20,
   },
@@ -61,6 +68,7 @@ export const styles = {
   mobiledescription: {
     fontSize: 7,
     width: 130,
+    marginTop: 9,
     padding: 1,
   },
   furnistyle: {
@@ -71,7 +79,7 @@ export const styles = {
   },
   mobilefurnistyle: {
     color: '#2196F3',
-    marginTop: 15,
+    marginTop: 5,
     fontSize: 7,
     padding: 1,
   },

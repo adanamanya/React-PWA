@@ -24,6 +24,9 @@ class FurnitureStyle extends Component {
     });
     // console.log(this.state.data, 'eheh');
   }
+  handleChange(value) {
+    console.log(`selected ${value}`);
+  }
   render() {
     const results = this.props.data;
     // console.log(results)
@@ -35,7 +38,8 @@ class FurnitureStyle extends Component {
           placeholder="Filter By Furniture Style"
           optionLabelProp="label"
           style={styles.select}
-        >
+          onChange={this.handleChange}
+          >
           {this.state.data.map(item => (
             <Option key={item} value={item} label={item}>
               <div>{item}</div>

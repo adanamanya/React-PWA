@@ -18,6 +18,9 @@ class DeliveryTime extends Component {
   async componentDidMount() {
     await this.props.requestFurnitureList();
   }
+  handleChange(value) {
+    console.log(`selected ${value}`);
+  }
 
   render() {
     const results = this.props.data;
@@ -29,6 +32,7 @@ class DeliveryTime extends Component {
           placeholder="Filter By DeliveryTime"
           optionLabelProp="label"
           style={styles.select}
+          onChange={this.handleChange}
         >
           {this.state.data.map(item => (
             <Option key={item} value={item} label={item}>
