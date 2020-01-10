@@ -40,7 +40,7 @@ class CardList extends Component {
             {data.map(tile => (
               <GridListTile style={{ padding: 5 }} key={tile.name}>
                 <div>
-                  <Card style={styles.card}>
+                  <Card style={isMobile ? styles.mobilecard : styles.card}>
                     <CardActionArea>
                       <CardContent>
                         <Grid container spacing={24}>
@@ -80,7 +80,7 @@ class CardList extends Component {
                           component="p"
                         >
                           {isMobile
-                            ? tile.description.slice(0, 70) + '......'
+                            ? tile.description.slice(0, 150) + '......'
                             : tile.description}
                         </Typography>
                       </CardContent>

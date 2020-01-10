@@ -79,7 +79,7 @@ export const styles = {
   },
   mobilefurnistyle: {
     color: '#2196F3',
-    marginTop: 5,
+    // marginTop: 5,
     fontSize: 7,
     padding: 1,
   },
