@@ -7,10 +7,17 @@ import {
 } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
+
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "antd/dist/antd.css";
+import '../src/app/styles';
+import '../src/app/pages/Home';
+import '../src/app/components/DropdownFurniture';
+import 'antd/es/select/style/css'; // for css
+import 'antd/dist/antd.less';
+
 // console.log = console.warn  = () => {};
 
 export default class Client {

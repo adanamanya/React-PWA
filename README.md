@@ -1,6 +1,6 @@
 
 
-<h1 align="center" style="text-align:center">ReactPWA - PawJS & Material UI</h1>
+<h1 align="center" style="text-align:center">ReactPWA BOILERPLATE</h1>
 
 
 ### Documentation
@@ -10,12 +10,20 @@ Here are the lists of "thing" that was used in this project
 
 1. `React`
 2. `PawJs`
-3. `Eslint`(linting)
+3. `Eslint`
 4. `prettier`
 5. `redux-saga`
 6. `material-UI`
 7. `lodash`
 8. `ReactPWA`
+9. `Antd`
+10. `Hot-reload`
+11. `Service-worker`
+12. `Server Side Rendering`
+
+
+
+
 
 
 ### Getting Started
@@ -30,7 +38,7 @@ git clone this repo
 npm install
 ```
 
-##### 2. Start the demo project
+##### 2. Start the project
 ```bash
 npm start
 ```

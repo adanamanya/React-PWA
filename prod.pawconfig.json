@@ -2,8 +2,8 @@
   "port": "9007",
   "host": "0.0.0.0",
   "appRootUrl": "/",
-  "serviceWorker": true,
+  "serviceWorker": false,
   "asyncCSS": false,
   "serverSideRender": true,
-  "singlePageApplication": false
+  "singlePageApplication": true
 }
