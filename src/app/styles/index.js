@@ -32,15 +32,23 @@ export const styles = {
   card: {
     minWidth: '38ex',
     alignContent: 'flex-start',
-    padding:1,
+    padding: 1,
     marginBottom: '3ex',
   },
   productname: {
     fontSize: 20,
   },
+  mobileproductname: {
+    fontSize: 10,
+  },
   price: {
     fontSize: 18,
-    color:'#FFA500'
+    color: '#FFA500',
+  },
+  mobileprice: {
+    fontSize: 7,
+    marginLeft: -10,
+    color: '#FFA500',
   },
   gridStyle: {
     width: '25%',
@@ -50,11 +58,21 @@ export const styles = {
     fontSize: 11,
     padding: 3,
   },
+  mobiledescription: {
+    fontSize: 7,
+    width: 130,
+    padding: 1,
+  },
   furnistyle: {
     color: '#2196F3',
-    marginTop:-10,
+    marginTop: -10,
     fontSize: 14,
-
+    padding: 1,
+  },
+  mobilefurnistyle: {
+    color: '#2196F3',
+    marginTop: 15,
+    fontSize: 7,
     padding: 1,
   },
   cardcontent: {

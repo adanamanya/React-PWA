@@ -12,17 +12,12 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
-
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import MDSpinner from 'react-md-spinner';
 import { fetchData } from '../../constants/api';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-
+import { isMobile } from 'react-device-detect';
 const _ = require('lodash');
-const ReactFitText = require('react-fittext');
 
 class CardList extends Component {
   state = {
@@ -32,12 +27,13 @@ class CardList extends Component {
   async componentDidMount() {
     const datanew = await fetchData();
     this.setState({ data: datanew['products'], loading: false });
-    console.log(datanew, 'aha');
   }
 
   render() {
+    // console.log(this.props, 'inidiasijalijali');
     return (
       <div style={styles.root}>
+        {this.props.datanew}
         <GridList cellHeight={180} style={styles.gridList}>
           <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
             <ListSubheader component="div">Furniture List</ListSubheader>
@@ -49,9 +45,13 @@ class CardList extends Component {
                   <CardActionArea>
                     <CardContent>
                       <Grid container spacing={24}>
-                        <Grid item xs={10}>
+                        <Grid item xs={isMobile ? 5 : 10}>
                           <Typography
-                            style={styles.productname}
+                            style={
+                              isMobile
+                                ? styles.mobileproductname
+                                : styles.productname
+                            }
                             gutterBottom
                             variant="h5"
                             component="h2"
@@ -59,9 +59,9 @@ class CardList extends Component {
                             {tile.name}
                           </Typography>
                         </Grid>
-                        <Grid item xs={2}>
+                        <Grid item xs={isMobile ? 3 : 2}>
                           <Typography
-                            style={styles.price}
+                            style={isMobile ? styles.mobileprice : styles.price}
                             gutterBottom
                             variant="h5"
                             component="h2"
@@ -70,35 +70,76 @@ class CardList extends Component {
                           </Typography>
                         </Grid>
                       </Grid>
-                      <Typography style={styles.description} component="p">
-                        {tile.description}
-                      </Typography>
+                      {this.state.loading ? (
+                        <MDSpinner duration={1000} />
+                      ) : (
+                        <Typography
+                          style={
+                            isMobile
+                              ? styles.mobiledescription
+                              : styles.description
+                          }
+                          component="p"
+                        >
+                          {isMobile
+                            ? tile.description.slice(0, 70) + '......'
+                            : tile.description}
+                        </Typography>
+                      )}
                     </CardContent>
                   </CardActionArea>
                   <CardActions>
                     <Grid container spacing={24}>
-                      <Grid item xs={10}>
-                        <Typography style={styles.furnistyle} component="p">
+                      <Grid item xs={isMobile ? 5 : 10}>
+                        <Typography
+                          style={
+                            isMobile
+                              ? styles.mobilefurnistyle
+                              : styles.furnistyle
+                          }
+                          component="p"
+                        >
                           {tile['furniture_style'].join(', ')}
                         </Typography>
                       </Grid>
-                      <Grid item xs={2}>
+                      <Grid item xs={isMobile ? 3 : 2}>
                         {tile.delivery_time <= 7 ? (
-                          <Typography style={styles.furnistyle} component="p">
+                          <Typography
+                            style={
+                              isMobile
+                                ? styles.mobilefurnistyle
+                                : styles.furnistyle
+                            }
+                            component="p"
+                          >
                             1 Week
                           </Typography>
                         ) : (
                           <div />
                         )}
                         {tile.delivery_time <= 14 && tile.delivery_time > 7 ? (
-                          <Typography style={styles.furnistyle} component="p">
+                          <Typography
+                            style={
+                              isMobile
+                                ? styles.mobilefurnistyle
+                                : styles.furnistyle
+                            }
+                            component="p"
+                          >
                             2 Week
                           </Typography>
                         ) : (
                           <div />
                         )}
                         {tile.delivery_time > 14 ? (
-                          <Typography style={styles.furnistyle} component="p">
+                          <Typography
+                            style={
+                              isMobile
+                                ? styles.mobilefurnistyle
+                                : styles.furnistyle
+                            }
+                            component="p"
+                          >
                             1 month
                           </Typography>
                         ) : (
@@ -117,9 +158,12 @@ class CardList extends Component {
   }
 }
 
-const mapStateToProps = state => ({ data: state.data });
-
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ requestFurnitureList }, dispatch);
-
+function mapStateToProps(state) {
+  return {
+    datanew: state.datanew,
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return { CardList: bindActionCreators(CardList, dispatch) };
+}
 export default connect(mapStateToProps, mapDispatchToProps)(CardList);

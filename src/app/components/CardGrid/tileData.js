@@ -4,21 +4,21 @@ const tileData = [
     furniture_style: ['loading..','loading...'],
     description: 'Loading......',
     delivery_time: "Loading............",
-    price: "Rp........"
+    price: "........"
   },
   {
     name: 'Loading..........',
     furniture_style: ['loading..','loading...'],
     description: 'Loading......',
     delivery_time: "Loading............",
-    price: "Rp........"
+    price: "........"
   },
   {
     name: 'Loading..............',
     furniture_style: ['loading..','loading...'],
     description: 'Loading......',
     delivery_time: "Loading............",
-    price: "Rp........"
+    price: "........"
   },
 ];
 

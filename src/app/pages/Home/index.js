@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
+import { store } from '../../constants/model';
 
-import store from '../../saga/store';
+// import store from '../../saga/store';
 import HomePages from './HomePages';
 
 export default () => (

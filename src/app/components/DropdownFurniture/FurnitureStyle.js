@@ -22,7 +22,7 @@ class FurnitureStyle extends Component {
     this.setState({
       data: results['furniture_styles'],
     });
-    console.log(this.state.data, 'eheh');
+    // console.log(this.state.data, 'eheh');
   }
   render() {
     const results = this.props.data;
