@@ -19,7 +19,7 @@ class DeliveryTime extends Component {
     await this.props.requestFurnitureList();
   }
   async handleChange(value) {
-    console.log('selected', value);
+    // console.log('selected', value);
     if (value !== '' || value !== undefined) {
       await this.props.filterbyDelivery(value);
     }
@@ -31,6 +31,7 @@ class DeliveryTime extends Component {
       <div>
         <Select
           allowClear={true}
+          autoClearSearchValue={true}
           mode="multiple"
           placeholder="Filter By DeliveryTime"
           optionLabelProp="label"

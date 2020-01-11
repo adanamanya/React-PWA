@@ -15,6 +15,7 @@ class FurnitureStyle extends Component {
   state = {
     data: items,
   };
+
   async componentDidMount() {
     await this.props.requestFurnitureList();
   }
@@ -22,12 +23,14 @@ class FurnitureStyle extends Component {
     this.setState({
       data: results['furniture_styles'],
     });
-    // console.log(this.state.data, 'eheh');
   }
   async handleChange(value) {
     console.log('selected', value);
-    if (value !== '' || value !== undefined) {
+    if (value.length !== 0) {
       await this.props.filterbyStyle(value);
+    } else {
+      // console.log('empty');
+      this.props.requestFurnitureList();
     }
   }
   render() {
@@ -38,6 +41,7 @@ class FurnitureStyle extends Component {
         <Select
           allowClear={true}
           onMouseEnter={() => this.handledropdown(results)}
+          autoClearSearchValue={true}
           mode="multiple"
           placeholder="Filter By Furniture Style"
           optionLabelProp="label"
