@@ -2,6 +2,7 @@ export const styles = {
   container: {
     alignContent: 'center',
     background: '#e2e1e0',
+    // height:'100%'
   },
   header: {
     background: '#2196F3',
@@ -25,6 +26,11 @@ export const styles = {
     overflow: 'hidden',
   },
   gridList: {
+    width: '100%',
+    padding: 20,
+    height: '100%',
+  },
+  mobilegridList: {
     width: '100%',
     padding: 20,
     height: 700,
@@ -53,8 +59,8 @@ export const styles = {
     color: '#FFA500',
   },
   mobileprice: {
-    fontSize: 7,
-    marginLeft: -10,
+    fontSize: 6.2,
+    marginLeft: -15,
     color: '#FFA500',
   },
   gridStyle: {
@@ -80,7 +86,7 @@ export const styles = {
   mobilefurnistyle: {
     color: '#2196F3',
     // marginTop: 5,
-    fontSize: 7,
+    fontSize: 6,
     padding: 1,
   },
   cardcontent: {

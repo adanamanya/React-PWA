@@ -4,7 +4,7 @@ import { styles } from '../../styles';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { requestFurnitureList } from '../../saga/actions';
+import { requestFurnitureList, filterbyDelivery } from '../../saga/actions';
 
 const _ = require('lodash');
 const { Option } = Select;
@@ -18,21 +18,24 @@ class DeliveryTime extends Component {
   async componentDidMount() {
     await this.props.requestFurnitureList();
   }
-  handleChange(value) {
-    console.log(`selected ${value}`);
+  async handleChange(value) {
+    console.log('selected', value);
+    if (value !== '' || value !== undefined) {
+      await this.props.filterbyDelivery(value);
+    }
   }
-
   render() {
     const results = this.props.data;
     // console.log(results)
     return (
       <div>
         <Select
+          allowClear={true}
           mode="multiple"
           placeholder="Filter By DeliveryTime"
           optionLabelProp="label"
           style={styles.select}
-          onChange={this.handleChange}
+          onChange={value => this.handleChange(value)}
         >
           {this.state.data.map(item => (
             <Option key={item} value={item} label={item}>
@@ -48,6 +51,6 @@ class DeliveryTime extends Component {
 const mapStateToProps = state => ({ data: state.data });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ requestFurnitureList }, dispatch);
+  bindActionCreators({ requestFurnitureList, filterbyDelivery }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeliveryTime);

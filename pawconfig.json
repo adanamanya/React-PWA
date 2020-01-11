@@ -2,7 +2,7 @@
   "port": "3003",
   "host": "0.0.0.0",
   "appRootUrl": "/",
-  "serviceWorker": true,
+  "serviceWorker": false,
   "serverSideRender": true,
   "singlePageApplication": true
 }

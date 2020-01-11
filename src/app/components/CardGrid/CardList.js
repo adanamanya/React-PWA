@@ -33,7 +33,10 @@ class CardList extends Component {
     return (
       <div style={styles.root}>
         {data !== undefined ? (
-          <GridList cellHeight={180} style={styles.gridList}>
+          <GridList
+            cellHeight={180}
+            style={isMobile ? styles.mobilegridList : styles.gridList}
+          >
             <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
               <ListSubheader component="div">Furniture List</ListSubheader>
             </GridListTile>

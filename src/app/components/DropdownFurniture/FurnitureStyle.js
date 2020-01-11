@@ -4,7 +4,7 @@ import { styles } from '../../styles';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { requestFurnitureList } from '../../saga/actions';
+import { requestFurnitureList, filterbyStyle } from '../../saga/actions';
 
 const _ = require('lodash');
 const { Option } = Select;
@@ -24,8 +24,11 @@ class FurnitureStyle extends Component {
     });
     // console.log(this.state.data, 'eheh');
   }
-  handleChange(value) {
-    console.log(`selected ${value}`);
+  async handleChange(value) {
+    console.log('selected', value);
+    if (value !== '' || value !== undefined) {
+      await this.props.filterbyStyle(value);
+    }
   }
   render() {
     const results = this.props.data;
@@ -33,13 +36,14 @@ class FurnitureStyle extends Component {
     return (
       <div>
         <Select
+          allowClear={true}
           onMouseEnter={() => this.handledropdown(results)}
           mode="multiple"
           placeholder="Filter By Furniture Style"
           optionLabelProp="label"
           style={styles.select}
-          onChange={this.handleChange}
-          >
+          onChange={value => this.handleChange(value)}
+        >
           {this.state.data.map(item => (
             <Option key={item} value={item} label={item}>
               <div>{item}</div>
@@ -54,6 +58,6 @@ class FurnitureStyle extends Component {
 const mapStateToProps = state => ({ data: state.data });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ requestFurnitureList }, dispatch);
+  bindActionCreators({ requestFurnitureList, filterbyStyle }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(FurnitureStyle);
