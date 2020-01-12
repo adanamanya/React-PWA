@@ -1,4 +1,4 @@
-{
+{"homepage": "http://adanamanya.github.io/react-pwa",
   "name": "Reactpwa",
   "version": "1.0.0",
   "description": "React pwa using pawjs",
@@ -7,7 +7,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "tests": "mocha tests",
-    "build": "pawjs --env=production --config=prod.pawconfig.json build"
+    "build": "pawjs --env=production --config=prod.pawconfig.json build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": {
     "name": "Gilang Lubis",
@@ -23,6 +25,7 @@
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.1",
+    "gh-pages": "^2.2.0",
     "prettier": "^1.19.1"
   },
   "license": "MIT",
