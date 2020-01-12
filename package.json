@@ -1,4 +1,4 @@
-{"homepage": "http://adanamanya.github.io/react-pwa",
+{"homepage": "https://adanamanya.github.io/React-PWA/",
   "name": "Reactpwa",
   "version": "1.0.0",
   "description": "React pwa using pawjs",
@@ -9,7 +9,7 @@
     "tests": "mocha tests",
     "build": "pawjs --env=production --config=prod.pawconfig.json build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "author": {
     "name": "Gilang Lubis",
