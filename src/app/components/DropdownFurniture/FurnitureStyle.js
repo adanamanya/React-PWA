@@ -25,7 +25,6 @@ class FurnitureStyle extends Component {
     if (value.length !== 0) {
       await this.props.filterbyStyle(value);
       this.props.requestFurnitureList();
-      console.log(this.props.data,'tesaja')
     } else {
       // console.log('empty');
       this.props.requestFurnitureList();

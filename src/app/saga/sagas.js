@@ -92,18 +92,12 @@ function* filterbyStyle({ payload }) {
 }
 
 function* filterbyDelivery({ payload }) {
+  yield delay(500);
   let data = [];
   const filters = payload.deliverytime;
   const datatohandle = yield select(state => state.data);
   console.log(filters, 'filternya');
   console.log(datatohandle.products, 'datanya');
-  // var posts = [
-  //   { term: { name: 'A', process: '123A' } },
-  //   { term: { name: 'B', process: '123B' } },
-  //   { term: { name: 'C', process: '123C' } },
-  // ];
-
-  // var result = _.filterByValues(posts, 'term.process', ['123A', '123C']);
   if (filters !== null || filters !== undefined) {
     let filteredData = _.filter(datatohandle.products, g =>
       _.includes(filters, g.delivtime),

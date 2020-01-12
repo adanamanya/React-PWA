@@ -18,7 +18,7 @@ import '../src/app/components/DropdownFurniture';
 import 'antd/es/select/style/css'; // for css
 import 'antd/dist/antd.less';
 
-// console.log = console.warn = console.error = () => {};
+console.log = console.warn = console.error = () => {};
 
 export default class Client {
   loadAds() {

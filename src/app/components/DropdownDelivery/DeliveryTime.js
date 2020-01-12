@@ -14,22 +14,18 @@ class DeliveryTime extends Component {
   state = {
     data: items,
   };
-  async componentDidMount() {
-    await this.props.requestFurnitureList();
-  }
 
   async handleChange(value) {
     // console.log('selected', value);
     if (value.length !== 0) {
       await this.props.filterbyDelivery(value);
+      this.props.requestFurnitureList();
     } else {
       // console.log('empty');
       this.props.requestFurnitureList();
     }
   }
   render() {
-    // const results = this.props.data;
-    // console.log(results)
     return (
       <div>
         <Select
