@@ -19,7 +19,8 @@
   "devDependencies": {
     "@pawjs/pawjs": "^2.2.6",
     "babel-plugin-import": "^1.13.0",
-    "eslint": "^6.6.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.1",
     "prettier": "^1.19.1"
@@ -35,6 +36,7 @@
     "axios": "^0.19.1",
     "classnames": "^2.2.6",
     "easy-peasy": "^3.2.6",
+    "lodash": "^4.17.15",
     "mdbreact": "^4.24.0",
     "mocha": "^6.1.4",
     "react": "^16.12.0",

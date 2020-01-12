@@ -3,13 +3,12 @@ import { Select } from 'antd';
 import { styles } from '../../styles';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-
+import { select } from 'redux-saga/effects';
 import { requestFurnitureList, filterbyDelivery } from '../../saga/actions';
 
-const _ = require('lodash');
 const { Option } = Select;
 
-const items = ['1 Week', '2 Week', '1 Month', '>1 Month'];
+const items = ['1 Week', '2 Week', '1 Month', '> 1Month'];
 
 class DeliveryTime extends Component {
   state = {
@@ -18,20 +17,24 @@ class DeliveryTime extends Component {
   async componentDidMount() {
     await this.props.requestFurnitureList();
   }
+
   async handleChange(value) {
     // console.log('selected', value);
-    if (value !== '' || value !== undefined) {
+    if (value.length !== 0) {
       await this.props.filterbyDelivery(value);
+    } else {
+      // console.log('empty');
+      this.props.requestFurnitureList();
     }
   }
   render() {
-    const results = this.props.data;
+    // const results = this.props.data;
     // console.log(results)
     return (
       <div>
         <Select
-          allowClear={true}
-          autoClearSearchValue={true}
+          allowClear
+          autoClearSearchValue
           mode="multiple"
           placeholder="Filter By DeliveryTime"
           optionLabelProp="label"

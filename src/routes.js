@@ -1,3 +1,5 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable class-methods-use-this */
 import ShareImg72 from './resources/img/icon-72x72.png';
 import ShareImg96 from './resources/img/icon-96x96.png';
 import ShareImg128 from './resources/img/icon-128x128.png';

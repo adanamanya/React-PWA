@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Select } from 'antd';
-import { styles } from '../../styles';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-
+import { styles } from '../../styles';
 import { requestFurnitureList, filterbyStyle } from '../../saga/actions';
 
-const _ = require('lodash');
 const { Option } = Select;
 
 const items = ['Loading ..', 'Loading ....'];
@@ -16,32 +14,33 @@ class FurnitureStyle extends Component {
     data: items,
   };
 
-  async componentDidMount() {
-    await this.props.requestFurnitureList();
-  }
   handledropdown(results) {
     this.setState({
-      data: results['furniture_styles'],
+      data: results.furniture_styles,
     });
   }
+
   async handleChange(value) {
-    console.log('selected', value);
+    // console.log('selected', value);
     if (value.length !== 0) {
       await this.props.filterbyStyle(value);
+      this.props.requestFurnitureList();
+      console.log(this.props.data,'tesaja')
     } else {
       // console.log('empty');
       this.props.requestFurnitureList();
     }
   }
+
   render() {
     const results = this.props.data;
     // console.log(results)
     return (
       <div>
         <Select
-          allowClear={true}
+          allowClear
           onMouseEnter={() => this.handledropdown(results)}
-          autoClearSearchValue={true}
+          autoClearSearchValue
           mode="multiple"
           placeholder="Filter By Furniture Style"
           optionLabelProp="label"
