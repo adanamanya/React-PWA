@@ -51,7 +51,7 @@ ReactPWA is a highly scalable, Progressive Web Application foundation, boilerpla
 Visit [ReactPWA](https://www.reactpwa.com) for more configuration & documentation.
 
 ### Try Live Version !!
-Visit http://adanamanya.github.io/react-pwa
+Visit https://adanamanya.github.io/React-PWA/
 
 wanna try mobile version?
-Visit http://adanamanya.github.io/react-pwa on your mobile devices!!
+Visit https://adanamanya.github.io/React-PWA/ on your mobile devices!!
